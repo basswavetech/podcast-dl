@@ -24,7 +24,7 @@ const escapeArgForShell = (arg) => {
     if (isWin) {
       return null;
     } else {
-      result = "'" + result.replace(/'/g, "'\\''") + "'";
+      result = `'${result.replace(/'/g, "'\\''")}'`;
       result = result
         .replace(/^(?:'')+/g, "") // unduplicate single-quote at the beginning
         .replace(/\\'''/g, "\\'"); // remove non-escaped single-quote if there are enclosed between 2 escaped
@@ -588,7 +588,7 @@ const runFfmpeg = async ({
 
   const tmpMp3Path = `${outputPath}.tmp${ext}`;
   command += ` "${tmpMp3Path}"`;
-  logMessage("Running command: " + command, LOG_LEVELS.debug);
+  logMessage(`Running command: ${command}`, LOG_LEVELS.debug);
 
   try {
     await execWithPromise(command, { stdio: "ignore" });
