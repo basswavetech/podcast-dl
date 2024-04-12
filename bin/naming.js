@@ -38,14 +38,13 @@ const getItemFilename = ({ item, ext, url, feed, template, width }) => {
   const templateSegments = template.trim().split(path.sep);
   const nameSegments = templateSegments.map((segment) => {
     let name = segment;
-    templateReplacementsTuples.forEach((replacementTuple) => {
-      const [matcher, replacement] = replacementTuple;
+    for (const [matcher, replacement] of templateReplacementsTuples) {
       const replaceRegex = new RegExp(`{{${matcher}}}`, "g");
 
       name = replacement
         ? name.replace(replaceRegex, replacement)
         : name.replace(replaceRegex, "");
-    });
+    }
 
     return getSimpleFilename(name);
   });
@@ -65,14 +64,13 @@ const getFolderName = ({ feed, template }) => {
   ];
 
   let name = template;
-  templateReplacementsTuples.forEach((replacementTuple) => {
-    const [matcher, replacement] = replacementTuple;
+  for (const [matcher, replacement] of templateReplacementsTuples) {
     const replaceRegex = new RegExp(`{{${matcher}}}`, "g");
 
     name = replacement
       ? name.replace(replaceRegex, getSafeName(replacement))
       : name.replace(replaceRegex, "");
-  });
+  }
 
   return name;
 };

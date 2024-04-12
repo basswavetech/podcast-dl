@@ -55,11 +55,11 @@ const getArchiveKey = ({ prefix, name }) => {
 
 const getPublicObject = (object, exclude = []) => {
   const output = {};
-  Object.keys(object).forEach((key) => {
+  for (const key of Object.keys(object)) {
     if (!key.startsWith("_") && !exclude.includes(key) && object[key]) {
       output[key] = object[key];
     }
-  });
+  }
 
   return output;
 };
