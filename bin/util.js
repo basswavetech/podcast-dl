@@ -23,12 +23,11 @@ const escapeArgForShell = (arg) => {
   if (/[^A-Za-z0-9_/:=-]/.test(result)) {
     if (isWin) {
       return null;
-    } else {
-      result = `'${result.replace(/'/g, "'\\''")}'`;
-      result = result
-        .replace(/^(?:'')+/g, "") // unduplicate single-quote at the beginning
-        .replace(/\\'''/g, "\\'"); // remove non-escaped single-quote if there are enclosed between 2 escaped
     }
+    result = `'${result.replace(/'/g, "'\\''")}'`;
+    result = result
+      .replace(/^(?:'')+/g, "") // unduplicate single-quote at the beginning
+      .replace(/\\'''/g, "\\'"); // remove non-escaped single-quote if there are enclosed between 2 escaped
   }
 
   return result;
