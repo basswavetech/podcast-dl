@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 
 const INVALID_CHAR_REPLACE = "_";
 const MAX_LENGTH_FILENAME = process.env.MAX_LENGTH_FILENAME
-  ? parseInt(process.env.MAX_LENGTH_FILENAME)
+  ? Number.parseInt(process.env.MAX_LENGTH_FILENAME)
   : 255;
 
 const getSafeName = (name, maxLength = MAX_LENGTH_FILENAME) => {

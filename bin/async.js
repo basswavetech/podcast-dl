@@ -76,7 +76,7 @@ const download = async (options) => {
   };
 
   const expectedSize = headResponse?.headers?.["content-length"]
-    ? parseInt(headResponse.headers["content-length"])
+    ? Number.parseInt(headResponse.headers["content-length"])
     : 0;
 
   logMessage(
