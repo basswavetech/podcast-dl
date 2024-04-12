@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import fs from "fs";
-import _path from "path";
+import fs from "node:fs";
+import _path from "node:path";
 import commander from "commander";
 import pluralize from "pluralize";
 import { bootstrap as bootstrapProxy } from "global-agent";

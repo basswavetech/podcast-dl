@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 import filenamify from "filenamify";
 import dayjs from "dayjs";
 

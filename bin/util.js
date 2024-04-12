@@ -1,9 +1,9 @@
 import rssParser from "rss-parser";
-import path from "path";
-import fs from "fs";
+import path from "node:path";
+import fs from "node:fs";
 import dayjs from "dayjs";
-import util from "util";
-import { exec } from "child_process";
+import util from "node:util";
+import { exec } from "node:child_process";
 
 import { logErrorAndExit, logMessage, LOG_LEVELS } from "./logger.js";
 import { getArchiveFilename, getItemFilename } from "./naming.js";

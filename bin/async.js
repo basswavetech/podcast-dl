@@ -1,8 +1,8 @@
 import pLimit from "p-limit";
-import _path from "path";
-import { promisify } from "util";
-import stream from "stream";
-import fs from "fs";
+import _path from "node:path";
+import { promisify } from "node:util";
+import stream from "node:stream";
+import fs from "node:fs";
 import got from "got";
 import { throttle } from "throttle-debounce";
 
