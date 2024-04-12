@@ -15,11 +15,11 @@ const createParseNumber = ({ min, max, name, required = true }) => {
         logErrorAndExit(`${name} must be a number`);
       }
 
-      if (typeof min !== undefined && number < min) {
+      if (typeof min !== "undefined" && number < min) {
         logErrorAndExit(`${name} must be >= ${min}`);
       }
 
-      if (typeof max !== undefined && number > max) {
+      if (typeof max !== "undefined" && number > max) {
         logErrorAndExit(
           `${name} must be <= ${
             max === Number.MAX_SAFE_INTEGER ? "Number.MAX_SAFE_INTEGER" : max
